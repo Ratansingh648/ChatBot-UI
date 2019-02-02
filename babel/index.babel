@@ -1,0 +1,230 @@
+var outputArea = $("#chat-output");
+var choiceList = []
+
+$("#user-input-form").on("submit", function(e) {
+  
+  e.preventDefault();
+  
+  var message = $("#user-input").val();
+   
+  outputArea.append(`
+    <div class='bot-message'>
+      <div class='message'>
+        ${message}
+      </div>
+    </div>
+  `);
+  
+  setTimeout(function() {
+    outputArea.append(`
+      <div class='user-message'>
+        <div class='message'>
+        I am great
+        </div>
+      </div>
+    `);
+  }, 250);
+  $("#user-input").val("");
+});
+
+$("#EMEA-button").on("click", function(e) {
+  $("#APAC-button").prop('disabled', true);
+  $("#EMEA-button").prop('disabled', true);
+  $("#AMER-button").prop('disabled', true);
+  $("#CH-button").prop('disabled', true);
+
+  outputArea.append(`
+    <div class='bot-message'>
+      <div class='message'>
+        EMEA
+      </div>
+    </div>
+  `);
+   
+  
+  setTimeout(function() {
+    outputArea.append(`
+      <div class='user-message'>
+        <div class='message'>
+        Thank you for Selecting EMEA Region. Please Select following of the Services.
+        </div>
+      </div>
+
+<div class="btn-group">
+  <button id="GM-button">GM</button>
+  <button id="CCRO-button">CCRO</button>
+</div> 
+    `);
+  }, 250);
+  $("#user-input").val("");
+});
+
+$("#AMER-button").on("click", function(e) {
+  $("#APAC-button").prop('disabled', true);
+  $("#EMEA-button").prop('disabled', true);
+  $("#AMER-button").prop('disabled', true);
+  $("#CH-button").prop('disabled', true);
+
+  outputArea.append(`
+    <div class='bot-message'>
+      <div class='message'>
+        AMER
+      </div>
+    </div>
+  `);
+   
+  setTimeout(function() {
+    outputArea.append(`
+      <div class='user-message'>
+        <div class='message'>
+        Thank you for Selecting AMER Region. Please Select following of the Services.
+        </div>      
+</div>
+
+<div class="btn-group">
+  <button id="GM-button">GM</button>
+  <button id="CCRO-button">CCRO</button>
+</div> 
+
+
+    `);
+  }, 250);
+  $("#user-input").val("");
+});
+
+
+$("#APAC-button").on("click", function(e) {
+  $("#APAC-button").prop('disabled', true);
+  $("#EMEA-button").prop('disabled', true);
+  $("#AMER-button").prop('disabled', true);
+  $("#CH-button").prop('disabled', true);
+  
+  outputArea.append(`
+    <div class='bot-message'>
+      <div class='message'>
+        APAC
+      </div>
+    </div>
+  `);
+   
+  setTimeout(function() {
+    outputArea.append(`
+      <div class='user-message'>
+        <div class='message'>
+        Thank you for Selecting APAC Region. Please Select following of the Services.
+        </div>
+      </div>
+
+<div class="btn-group">
+  <button id="GM-button">GM</button>
+  <button id="CCRO-button">CCRO</button>
+</div> 
+
+    `);
+  }, 250);
+  $("#user-input").val("");
+});
+
+
+
+$("#CH-button").on("click", function(e) {
+  $("#APAC-button").prop('disabled', true);
+  $("#EMEA-button").prop('disabled', true);
+  $("#AMER-button").prop('disabled', true);
+  $("#CH-button").prop('disabled', true);
+  
+  outputArea.append(`
+    <div class='bot-message'>
+      <div class='message'>
+        APAC
+      </div>
+    </div>
+  `);
+   
+  setTimeout(function() {
+    outputArea.append(`
+      <div class='user-message'>
+        <div class='message'>
+        Thank you for Selecting CH Region. Please Select following of the Services.
+        </div>
+      </div>
+
+<div class="btn-group">
+  <button id="GM-button">GM</button>
+  <button id="CCRO-button">CCRO</button>
+</div> 
+
+    `);
+  }, 250);
+  $("#user-input").val("");
+});
+
+
+
+
+$("#GM-button").on("click", function(e) {
+  $("#GM-button").prop('disabled', true);
+  $("#CCRO-button").prop('disabled', true);
+  
+  outputArea.append(`
+    <div class='bot-message'>
+      <div class='message'>
+        GM
+      </div>
+    </div>
+  `);
+   
+  setTimeout(function() {
+    outputArea.append(`
+      <div class='user-message'>
+        <div class='message'>
+        Thank you for Selecting GM Region. Please Select following of the Services.
+        </div>
+      </div>
+
+<div class="btn-group">
+  <button id="User-Access-button">User Access</button>
+  <button id="User-Config-button">User Config</button>
+  <button id="Red-Owl-UI-button">Red Owl UI</button>
+  <button id="RQL-Help-button">RQL Help</button>
+</div> 
+
+    `);
+  }, 250);
+  $("#user-input").val("");
+});
+
+
+
+$("#CCRO-button").on("click", function(e) {
+  $("#GM-button").prop('disabled', true);
+  $("#CCRO-button").prop('disabled', true);
+  
+  outputArea.append(`
+    <div class='bot-message'>
+      <div class='message'>
+        APAC
+      </div>
+    </div>
+  `);
+   
+  setTimeout(function() {
+    outputArea.append(`
+      <div class='user-message'>
+        <div class='message'>
+        Thank you for Selecting GM Region. Please Select following of the Services.
+        </div>
+      </div>
+
+<div class="btn-group">
+  <button id="User-Access-button">User Access</button>
+  <button id="User-Config-button">User Config</button>
+  <button id="Red-Owl-UI-button">Red Owl UI</button>
+  <button id="RQL-Help-button">RQL Help</button>
+
+</div> 
+
+    `);
+  }, 250);
+  $("#user-input").val("");
+});

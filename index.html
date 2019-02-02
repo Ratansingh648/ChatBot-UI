@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bot UI</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div class="chat-output" id="chat-output">
+  <div class="user-message">
+    <div class="message">Hi Welcome to RedOwl Application ! I am a Chatbot, I can help you with the RedOwl Related Queries. Please select the Quick Links below or Type your question.</div>
+    
+  </div>
+  <div class="btn-group">
+  <button id="APAC-button" onclick="selectDepartment('APAC')">APAC</button>
+  <button id="EMEA-button" onclick="selectDepartment('EMEA')">EMEA</button>
+  <button id="AMER-button" onclick="selectDepartment('AMER')">AMER</button>
+  <button id="CH-button" onclick="selectDepartment('CH')">CH</button>
+</div>    
+</div>
+
+<div class="chat-input">
+  <form action="#0" id="user-input-form">
+    <input type="text" id="user-input" class="user-input" placeholder="Start a conversation.">
+  </form>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+
+
+</body>
+
+
+<script> 
+
+var selectionList;
+
+
+function selectDepartment(region){
+  
+  selectionList = [];
+  selectionList.push(region);
+  document.getElementById('user-input-form').disabled = true;
+
+  var botMessage = document.createElement('div');
+  botMessage.className = "bot-message";
+  var responseBot = document.createElement('div');
+  responseBot.className = 'message';
+  var responseBotText = document.createTextNode(region);
+  responseBot.appendChild(responseBotText);
+  botMessage.append(responseBot);
+
+  var userMessage = document.createElement('div');
+  userMessage.className = "user-message";
+  var responseUser = document.createElement('div');
+  responseUser.className = 'message';
+  var responseUserText = document.createTextNode('Thank you for Selecting ' + region +  ' Region. Please Select from following of the Departments.');
+  responseUser.appendChild(responseUserText);
+  userMessage.appendChild(responseUser);
+
+
+  var departmentMessage = document.createElement('div');
+  departmentMessage.className = "btn-group";
+  
+  var button1 = document.createElement('button');
+  var button1Text = document.createTextNode('GM');
+  button1.appendChild(button1Text);
+  button1.setAttribute('id','GM-button');
+  button1.setAttribute('onclick', 'selectService("GM")');
+  
+  var button2 = document.createElement('button');
+  var button2Text = document.createTextNode('CCRO');
+  button2.appendChild(button2Text);
+  button2.setAttribute('id','CCRO-button');
+  button2.setAttribute('onclick', 'selectService("CCRO")');
+  
+  departmentMessage.appendChild(button1);
+  departmentMessage.appendChild(button2);
+
+  document.getElementById("chat-output").appendChild(botMessage);
+  document.getElementById("chat-output").appendChild(userMessage);
+  document.getElementById("chat-output").appendChild(departmentMessage);
+}
+
+
+function selectService(department){
+  
+  selectionList[1] = department;
+  document.getElementById('user-input-form').disabled = true;
+  console.log(selectionList);
+  
+  var botMessage = document.createElement('div');
+  botMessage.className = "bot-message";
+  var responseBot = document.createElement('div');
+  responseBot.className = 'message';
+  var responseBotText = document.createTextNode(department);
+  responseBot.appendChild(responseBotText);
+  botMessage.append(responseBot);
+
+  var userMessage = document.createElement('div');
+  userMessage.className = "user-message";
+  var responseUser = document.createElement('div');
+  responseUser.className = 'message';
+  var responseUserText = document.createTextNode('Thank you for Selecting ' + department +  ' department. Please Select from following of the Services.');
+  responseUser.appendChild(responseUserText);
+  userMessage.appendChild(responseUser);
+
+
+  var serviceMessage = document.createElement('div');
+  serviceMessage.className = "btn-group";
+  
+  var button1 = document.createElement('button');
+  var button1Text = document.createTextNode('User Access');
+  button1.appendChild(button1Text);
+  button1.setAttribute('id','User-Access-button');
+  button1.setAttribute('onclick', 'callProcedure("User-Access")');
+  
+  var button2 = document.createElement('button');
+  var button2Text = document.createTextNode('User Config');
+  button2.appendChild(button2Text);
+  button2.setAttribute('id','User-Config-button');
+  button2.setAttribute('onclick', 'callProcedure("User-Config")');
+  
+  var button3 = document.createElement('button');
+  var button3Text = document.createTextNode('Red-Owl-UI');
+  button3.appendChild(button3Text);
+  button3.setAttribute('id','Red-Owl-UI-button');
+  button3.setAttribute('onclick', 'callProcedure("Red-Owl-UI")');
+  
+  var button4 = document.createElement('button');
+  var button4Text = document.createTextNode('RQL Help');
+  button4.appendChild(button4Text);
+  button4.setAttribute('id','RQL-Help-button');
+  button4.setAttribute('onclick', 'callProcedure("RQL-Help")');
+  
+  var button5 = document.createElement('button');
+  var button5Text = document.createTextNode('Other');
+  button5.appendChild(button5Text);
+  button5.setAttribute('id','Other-button');
+  button5.setAttribute('onclick', 'callProcedure("Other")');
+  
+  serviceMessage.appendChild(button1);
+  serviceMessage.appendChild(button2);
+  serviceMessage.appendChild(button3);
+  serviceMessage.appendChild(button4);
+  serviceMessage.appendChild(button5);
+
+  document.getElementById("chat-output").appendChild(botMessage);
+  document.getElementById("chat-output").appendChild(userMessage);
+  document.getElementById("chat-output").appendChild(serviceMessage);
+}
+
+</script>
+
+
+
+</html>
